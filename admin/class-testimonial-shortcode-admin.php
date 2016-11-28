@@ -130,8 +130,12 @@ class Testimonial_Shortcode_Admin {
 		$query = new WP_Query();
 		$query->set('category_name', 'testimonials');
 		$query->set('s', $_POST['search']);
-		echo wp_json_encode($query->get_posts());
-		exit();
+		$posts = $query->get_posts();
+		foreach ($posts as &$post) {
+			$post->thumbnail = get_the_post_thumbnail($post->ID, 'thumbnail', array('class' => '', 'height' => 50, 'width' => 50));
+		}
+		echo wp_json_encode($posts);
+		wp_die();
 	}
 
 	public function render_form()
