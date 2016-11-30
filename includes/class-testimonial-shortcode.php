@@ -154,7 +154,10 @@ class Testimonial_Shortcode {
 		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_styles' );
 		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_scripts' );
 
+		$this->loader->add_action( 'admin_init', $plugin_admin, 'admin_init');
+		$this->loader->add_action( 'print_media_templates', $plugin_admin, 'print_media_templates');
 		$this->loader->add_action('admin_head', $plugin_admin, 'button_init');
+		$this->loader->add_action('admin_head', $plugin_admin, 'js_variables');
 		$this->loader->add_action( 'wp_ajax_render_form', $plugin_admin, 'render_form' );
 		$this->loader->add_action( 'wp_ajax_get_testimonial', $plugin_admin, 'get_testimonial' );
 	}

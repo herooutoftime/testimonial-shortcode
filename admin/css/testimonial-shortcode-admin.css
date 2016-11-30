@@ -2,3 +2,10 @@
  * All of the CSS for your admin-specific functionality should be
  * included in this file.
  */
+.wpview-testimonial {
+    background-color: #ccc;
+    border: 1px solid #666;
+}
+.wpview-testimonial * {
+    user-select: none;
+}
